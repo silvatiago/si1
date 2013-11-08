@@ -37,6 +37,22 @@ public class ExtensoTest {
         //teste ate 999999
         
         
+        assertEquals("mil", e.numero_por_Extenso(1000));
+        assertEquals("mil e um", e.numero_por_Extenso(1001));
+        assertEquals("mil e cem", e.numero_por_Extenso(1100));
+        assertEquals("mil cento e um", e.numero_por_Extenso(1101));
+        assertEquals("dez mil", e.numero_por_Extenso(10000));
+        assertEquals("cem mil", e.numero_por_Extenso(100000));
+        assertEquals("cem mil cento e um", e.numero_por_Extenso(100101));
+        assertEquals("cem mil", e.numero_por_Extenso(100000));
+        assertEquals("novecentos e noventa e nove mil novecentos e noventa e nove", e.numero_por_Extenso(999999));
+        
+        
+        assertEquals("um milhao cem mil e cem", e.numero_por_Extenso(1100100));
+        assertEquals("dois milhoes", e.numero_por_Extenso(2000000));
+        assertEquals("cem milhoes cem mil e cem", e.numero_por_Extenso(100100100));
+        assertEquals("novecentos e noventa e nove milhoes novecentos e noventa e nove mil novecentos e noventa e nove", e.numero_por_Extenso(999999999));
+        assertEquals("um bilhao", e.numero_por_Extenso(1000000000));
         
         
 
