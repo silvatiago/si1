@@ -32,6 +32,11 @@ public class Extenso {
            if (numero_passado == 100){
                 return "cem";
         }
+           if (numero_passado == 1000){
+               return "mil";
+       }
+           
+       
         
         if (numero_passado > 100 && numero_passado < 1000){
                 String[] array_das_Centenas = {"cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}; 
@@ -45,11 +50,6 @@ public class Extenso {
                 }
         }
             
-        
-        
-        if (numero_passado == 1000){
-                return "mil";
-        }
         
         if (numero_passado > 1000 && numero_passado < 1000000){
                 int num2 = numero_passado/1000;
