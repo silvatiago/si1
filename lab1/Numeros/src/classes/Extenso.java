@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Scanner;
+
 public class Extenso {
 
 	public Extenso() {
@@ -15,6 +17,9 @@ public class Extenso {
 		}
 		if (numero_passado == 1000000) {
 			return "um milhao";
+		}
+		if (numero_passado == 1000000000){
+			return "um bilhao";
 		}
 
 		if (numero_passado >= 0 && numero_passado < 20) {
@@ -89,9 +94,6 @@ public class Extenso {
 			
 			int rest = numero_passado % 1000000;
 			
-			System.out.println(rest);
-			System.out.println(divisao);
-			
 			if (rest == 0) {
 				if (rest <= 19) {
 					
@@ -102,20 +104,26 @@ public class Extenso {
 				return numero_por_Extenso(divisao) + " milhao e " + numero_por_Extenso(rest);
 				
 			}
-			else if(numero_passado > 1000000 && numero_passado < 2000000 && rest>1000){
+			else if(numero_passado > 1000000 && numero_passado < 2000000 && rest >1000){
 				return numero_por_Extenso(divisao) + " milhao " + numero_por_Extenso(rest);
 			}
 			
 			if (rest != 0) {
 				if (divisao > 1) {
-					if (rest < 1000 || rest % 100 == 0) {
+					if (rest < 100 || rest % 1000 == 0) {
 						return numero_por_Extenso(divisao) + " milhoes e " + numero_por_Extenso(rest);
+					}
+					else if(rest > 100){
+						return numero_por_Extenso(divisao) + " milhoes " + numero_por_Extenso(rest);
 					}
 					return numero_por_Extenso(divisao) + " milhoes " + numero_por_Extenso(rest);
 
 				} else {
-					if (rest < 1000 || rest % 100 == 0) {
+					if (rest < 100 || rest % 1000 == 0) {
 						return "milhoes e " + numero_por_Extenso(rest);
+					}
+					else if(rest > 100){
+						return numero_por_Extenso(divisao) + " milhoes " + numero_por_Extenso(rest);
 					}
 					return "milhoes " + numero_por_Extenso(rest);
 				}
@@ -124,11 +132,6 @@ public class Extenso {
 		
 
 		return null;
-	}
-
-	public static void main(String[] args) {
-		Extenso e = new Extenso();
-		System.out.println(e.numero_por_Extenso(1001000));
 	}
 
 }
