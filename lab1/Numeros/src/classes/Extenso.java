@@ -1,90 +1,134 @@
 package classes;
 
 public class Extenso {
-    
-    public Extenso(){       
-    }
 
-    public String numero_por_Extenso(int numero_passado) {
-            
-            if (numero_passado >= 0 && 
-            		numero_passado < 20 ){
-            	String[] array_inicial = {"zero", "um", "dois", "tres", "quatro", "cinco", "seis", 
-            								"sete", "oito", "nove", "dez", "onze", "doze", "treze", 
-            								"quatorze", "quize", "dezesseis", "dezessete", "dezoito", "dezenove"};
+	public Extenso() {
+	}
 
-                    return array_inicial[numero_passado];
-            }
-            
-            if (numero_passado >= 20 && 
-            		numero_passado < 100){
-            		String[] array_das_Dezenas = {"vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"};
-                    int divisao = numero_passado/10;
-                    int rest = numero_passado%10;
-                    
-                    if(rest == 0){
-                            return array_das_Dezenas[divisao-2];
-                    }else{
-                            return array_das_Dezenas[divisao-2] + " e " + numero_por_Extenso(rest);
-                    }
-            }
-            
-           if (numero_passado == 100){
-                return "cem";
-        }
-           if (numero_passado == 1000){
-               return "mil";
-       }
-           
-       
-        
-        if (numero_passado > 100 && numero_passado < 1000){
-                String[] array_das_Centenas = {"cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}; 
-                int num2 = numero_passado/100;
-                int resto = numero_passado%100;
-                
-                if(resto == 0){
-                        return array_das_Centenas[num2-1];
-                }else{
-                        return array_das_Centenas[num2-1] + " e " + numero_por_Extenso(resto);
-                }
-        }
-            
-        
-        if (numero_passado > 1000 && numero_passado < 1000000){
-                int num2 = numero_passado/1000;
-                int resto = numero_passado%1000;
-                
-                if (resto == 0){
-                        if(resto <= 19){
-                                return numero_por_Extenso(num2)+ " mil";
-                        }
-        
-                }
-                if (resto != 0){
-                        if(num2 > 1){
-                                if(resto < 100 || resto%100 == 0){
-                                        return numero_por_Extenso(num2) + " mil e " + numero_por_Extenso(resto);
-                                }
-                                return numero_por_Extenso(num2) + " mil " +  numero_por_Extenso(resto);
-                        
-                        
-                        }else{
-                                if(resto < 100 || resto%100 == 0){
-                                        return "mil e "+ numero_por_Extenso(resto);
-                                }                                        
-                                return "mil " + numero_por_Extenso(resto);
-                        }
-                }
-                
-        }
-        
-            
-			return null;
-    }
-    public static void main(String[] args) {
+	public String numero_por_Extenso(int numero_passado) {
+
+		if (numero_passado == 100) {
+			return "cem";
+		}
+		if (numero_passado == 1000) {
+			return "mil";
+		}
+		if (numero_passado == 1000000) {
+			return "um milhao";
+		}
+
+		if (numero_passado >= 0 && numero_passado < 20) {
+			String[] array_inicial = { "zero", "um", "dois", "tres", "quatro",
+					"cinco", "seis", "sete", "oito", "nove", "dez", "onze",
+					"doze", "treze", "quatorze", "quize", "dezesseis",
+					"dezessete", "dezoito", "dezenove" };
+
+			return array_inicial[numero_passado];
+		}
+
+		if (numero_passado >= 20 && numero_passado < 100) {
+			String[] array_das_Dezenas = { "vinte", "trinta", "quarenta",
+					"cinquenta", "sessenta", "setenta", "oitenta", "noventa" };
+			int divisao = numero_passado / 10;
+
+			int rest = numero_passado % 10;
+
+			if (rest == 0) {
+				return array_das_Dezenas[divisao - 2];
+			} else {
+				return array_das_Dezenas[divisao - 2] + " e " + numero_por_Extenso(rest);
+			}
+		}
+
+		if (numero_passado > 100 && numero_passado < 1000) {
+			String[] array_das_Centenas = { "cento", "duzentos", "trezentos",
+					"quatrocentos", "quinhentos", "seiscentos", "setecentos",
+					"oitocentos", "novecentos" };
+			int divisao = numero_passado / 100;
+
+			int rest = numero_passado % 100;
+
+			if (rest == 0) {
+				return array_das_Centenas[divisao - 1];
+			} else {
+				return array_das_Centenas[divisao - 1] + " e " + numero_por_Extenso(rest);
+			}
+		}
+
+		if (numero_passado > 1000 && numero_passado < 1000000) {
+			int divisao = numero_passado / 1000;
+			
+			int rest = numero_passado % 1000;
+			
+
+			if (rest == 0) {
+				if (rest <= 19) {
+					
+					return numero_por_Extenso(divisao) + " mil";
+				}
+
+			}
+			if (rest != 0) {
+				if (divisao > 1) {
+					if (rest < 100 || rest % 100 == 0) {
+						return numero_por_Extenso(divisao) + " mil e " + numero_por_Extenso(rest);
+					}
+					return numero_por_Extenso(divisao) + " mil " + numero_por_Extenso(rest);
+
+				} else {
+					if (rest < 100 || rest % 100 == 0) {
+						return "mil e " + numero_por_Extenso(rest);
+					}
+					return "mil " + numero_por_Extenso(rest);
+				}
+			}
+
+		}
+		if(numero_passado >1000000 && numero_passado <1000000000){
+			int divisao = numero_passado / 1000000;
+			
+			int rest = numero_passado % 1000000;
+			
+			System.out.println(rest);
+			System.out.println(divisao);
+			
+			if (rest == 0) {
+				if (rest <= 19) {
+					
+					return numero_por_Extenso(divisao) + " milhoes";
+				}
+			}
+			if(numero_passado > 1000000 && numero_passado < 2000000 && rest<= 1000){
+				return numero_por_Extenso(divisao) + " milhao e " + numero_por_Extenso(rest);
+				
+			}
+			else if(numero_passado > 1000000 && numero_passado < 2000000 && rest>1000){
+				return numero_por_Extenso(divisao) + " milhao " + numero_por_Extenso(rest);
+			}
+			
+			if (rest != 0) {
+				if (divisao > 1) {
+					if (rest < 1000 || rest % 100 == 0) {
+						return numero_por_Extenso(divisao) + " milhoes e " + numero_por_Extenso(rest);
+					}
+					return numero_por_Extenso(divisao) + " milhoes " + numero_por_Extenso(rest);
+
+				} else {
+					if (rest < 1000 || rest % 100 == 0) {
+						return "milhoes e " + numero_por_Extenso(rest);
+					}
+					return "milhoes " + numero_por_Extenso(rest);
+				}
+			}
+		}
+		
+
+		return null;
+	}
+
+	public static void main(String[] args) {
 		Extenso e = new Extenso();
-		System.out.println(e.numero_por_Extenso(999999));
+		System.out.println(e.numero_por_Extenso(1001000));
 	}
 
 }
