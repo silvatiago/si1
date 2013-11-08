@@ -34,6 +34,15 @@ public class ExtensoTest {
         assertEquals("novecentos e noventa e nove", e.numero_por_Extenso(999));
         assertEquals("novecentos", e.numero_por_Extenso(900));
         
+        //teste ate 999999
+        
+        
+        
+        
+
+
+        
+        
         
         
 	}

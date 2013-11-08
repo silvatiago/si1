@@ -44,9 +44,9 @@ public class Extenso {
                 int resto = numero_passado%100;
                 
                 if(resto == 0){
-                        return String.format("%s", array_das_Centenas[num2-1]);
+                        return array_das_Centenas[num2-1];
                 }else{
-                        return String.format("%s e %s", array_das_Centenas[num2-1], numero_por_Extenso(resto));
+                        return array_das_Centenas[num2-1] + " e " + numero_por_Extenso(resto);
                 }
         }
             
@@ -57,23 +57,23 @@ public class Extenso {
                 
                 if (resto == 0){
                         if(resto <= 19){
-                                return String.format("%s mil", numero_por_Extenso(num2));
+                                return numero_por_Extenso(num2)+ " mil";
                         }
         
                 }
                 if (resto != 0){
                         if(num2 > 1){
                                 if(resto < 100 || resto%100 == 0){
-                                        return String.format("%s mil e %s", numero_por_Extenso(num2), numero_por_Extenso(resto));
+                                        return numero_por_Extenso(num2) + " mil e " + numero_por_Extenso(resto);
                                 }
-                                return String.format("%s mil %s", numero_por_Extenso(num2), numero_por_Extenso(resto));
+                                return numero_por_Extenso(num2) + " mil " +  numero_por_Extenso(resto);
                         
                         
                         }else{
                                 if(resto < 100 || resto%100 == 0){
-                                        return String.format("mil e %s", numero_por_Extenso(resto));
+                                        return "mil e "+ numero_por_Extenso(resto);
                                 }                                        
-                                return String.format("mil %s", numero_por_Extenso(resto));
+                                return "mil " + numero_por_Extenso(resto);
                         }
                 }
                 
@@ -84,7 +84,7 @@ public class Extenso {
     }
     public static void main(String[] args) {
 		Extenso e = new Extenso();
-		System.out.println(e.numero_por_Extenso(1500));
+		System.out.println(e.numero_por_Extenso(999999));
 	}
 
 }
