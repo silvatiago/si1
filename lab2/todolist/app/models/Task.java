@@ -9,6 +9,8 @@ import javax.persistence.*;
 
 @Entity
 public class Task extends Model {
+	
+private boolean concluido = false;
 
   @Id
   public Long id;
@@ -22,7 +24,13 @@ public class Task extends Model {
   @Required
   public int prioridade;
   
-  
+  public boolean Concluido() {
+		return concluido;
+	}
+
+	public void setConcluido(boolean concluido) {
+		this.concluido = concluido;
+	}
   
 	public Long getId() {
 		return id;
@@ -68,6 +76,16 @@ public static Finder<Long,Task> find = new Finder(Long.class, Task.class);
 
 	public static void delete(Long id) {
 	  find.ref(id).delete();
+	}
+	
+	public static void update(Long id) {
+		Task task = find.ref(id);
+        if (task.Concluido() == true) {
+        	task.setConcluido(false);
+        } else{
+        	task.setConcluido(true);
+        }
+        task.update();
 	}
 
 }
