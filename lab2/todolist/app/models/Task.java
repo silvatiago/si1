@@ -9,29 +9,29 @@ import javax.persistence.*;
 
 @Entity
 public class Task extends Model {
-	
-private boolean concluido = false;
 
-  @Id
-  public Long id;
-  
-  @Required
-  public String nome;
-  
-  @Required
-  public String descricao;
-  
-  @Required
-  public int prioridade;
-  
-  public boolean Concluido() {
+	private boolean concluido = false;
+
+	@Id
+	public Long id;
+
+	@Required
+	public String nome;
+
+	@Required
+	public String descricao;
+
+	@Required
+	public int prioridade;
+
+	public boolean Concluido() {
 		return concluido;
 	}
 
 	public void setConcluido(boolean concluido) {
 		this.concluido = concluido;
 	}
-  
+
 	public Long getId() {
 		return id;
 	}
@@ -64,28 +64,28 @@ private boolean concluido = false;
 		this.prioridade = prioridade;
 	}
 
-public static Finder<Long,Task> find = new Finder(Long.class, Task.class);
+	public static Finder<Long, Task> find = new Finder(Long.class, Task.class);
 
-  public static List<Task> all() {
-	  return find.all();
+	public static List<Task> all() {
+		return find.all();
 	}
 
 	public static void create(Task task) {
-	  task.save();
+		task.save();
 	}
 
 	public static void delete(Long id) {
-	  find.ref(id).delete();
+		find.ref(id).delete();
 	}
-	
+
 	public static void update(Long id) {
 		Task task = find.ref(id);
-        if (task.Concluido() == true) {
-        	task.setConcluido(false);
-        } else{
-        	task.setConcluido(true);
-        }
-        task.update();
+		if (task.Concluido() == true) {
+			task.setConcluido(false);
+		} else {
+			task.setConcluido(true);
+		}
+		task.update();
 	}
 
 }
