@@ -6,6 +6,10 @@ import play.data.Form;
 import play.mvc.*;
 import views.html.*;
 
+
+
+
+
 public class Application extends Controller {
 	
 	static Form<Task> taskForm = Form.form(Task.class);
@@ -31,7 +35,8 @@ public class Application extends Controller {
 	  }
 	  
 	  public static Result deleteTask(Long id) {
-	    return TODO;
+		  Task.delete(id);
+		  return redirect(routes.Application.tasks());
 	  }
 
 }
