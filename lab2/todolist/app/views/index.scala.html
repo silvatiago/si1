@@ -1,19 +1,19 @@
 @(tasks: List[Task], taskForm: Form[Task])
-
+<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
 @import helper._
 
 @main("Tarefas") {
     @Collections.sort(tasks)
 	
-	
+<div class ="container">	
 <table class="table table-striped">
-<CENTER><FONT COLOR=BLUE SIZE=6>Tarefas</FONT></CENTER>
-	<tr style="background-color: red;">
+<CENTER><FONT COLOR=Black SIZE=6>Tarefas</FONT></CENTER>
+	<tr style="background-color: grenn;">
                     <th style="border:none;font-size: 25px;"> 
                             Tarefas a Fazer 
                     </th>
             </tr>
-	<tr style="background-color: blue;">
+	<tr style="background-color: green;">
                        <th >Nome</td>
                        <th >Descrição</td>
                        <th >Prioridade</td>
@@ -45,12 +45,12 @@
 	
 	<table class="table table-striped">
 
-	<tr style="background-color: red;">
+	<tr style="background-color: gree;">
                     <th style="border:none;font-size: 25px;"> 
                             Tarefas Feitas 
                     </th>
             </tr>
-	<tr style="background-color: blue;">
+	<tr style="background-color: green;">
                        <th >Nome</td>
                        <th >Descrição</td>
                        <th >Prioridade</td>
@@ -83,10 +83,17 @@
         
         @inputText(taskForm("nome"),'_label->"Nome")
 		@inputText(taskForm("descricao"),'_label->"Descrição")
-		@inputText(taskForm("prioridade"),'_label->"Prioridade") 
+		<br>Prioridade</br>
+		<select name="prioridade" class="span2">
+                <option value=1 >1</option>
+                <option value=2 >2</option>
+                <option value=3 >3</option>
+            </select> </br>    
         
         <input type="submit" value="Criar">
         
     }
+    
+    </div>
     
 }
