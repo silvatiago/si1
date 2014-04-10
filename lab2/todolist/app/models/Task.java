@@ -15,13 +15,10 @@ public class Task extends Model implements Comparable<Object> {
 	@Id
 	public Long id;
 
-	@Required
 	public String nome;
 
-	@Required
 	public String descricao;
 
-	@Required
 	public int prioridade;
 
 	public boolean Concluido() {
